@@ -39,6 +39,39 @@ class Group:
                 self.table[res] = [first, second]
 
 
+class PseudoGroup:
+    """
+    Relaxes the constraints of a Group. Useful for solving mod n inverses so that a proper Group can be constructed next.
+    """
+
+    def __init__(self, operation, members, identity) -> None:
+        if operation is not None:
+            self.operation = operation
+        else:
+            raise ValueError("A composition operation must be provided with a Group.")
+        if identity is not None:
+            self.identity = identity
+        else:
+            raise ValueError("An identity element must be provided with a Group.")
+        if isinstance(members, list):
+            self.members = members
+
+        self.commutative = None
+        self.table = {}
+
+    def generate_table(self):
+        self.table = {}
+
+        if self.commutative:
+            for [first, second] in itertools.combinations(self.members, 2):
+                res = self.operation(first, second)
+                self.table[res] = [first, second]
+        else:
+            for [first, second] in itertools.permutations(self.members, 2):
+                res = self.operation(first, second)
+                self.table[res] = [first, second]
+
+
 class Abelian(Group):
 
     def __init__(self, operation, members, identity) -> None:
@@ -46,7 +79,7 @@ class Abelian(Group):
         self.commutative = True
 
 
-class Binary(Group):
+class Binary(PseudoGroup):
 
     def __init__(self, operation, members, identity, data_type=None, symbol="o") -> None:
         super().__init__(self, operation, members, identity)

@@ -12,10 +12,7 @@ members = []
 
 # the maximum 64 bit unsigned integer
 for member in range(18446744073709551615):
-    pair = [member]
-    # TODO: calculate the mod n inverse using the extended euclidian algorithm or other for each number
-    # pair.append(inverse)
-    members.append(pair)
+    members.append(member)
 
 multiplicative_group = Binary(
     mul, 

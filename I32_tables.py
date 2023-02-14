@@ -20,14 +20,8 @@ def add(first, second):
 
 members = []
 
-# the maximum 32 bit signed integer
-for member in range(2147483647):
-    pair = [member]
-    # TODO: calculate the mod n inverse using the extended euclidian algorithm or other for each number
-    # pair.append(inverse)
-
-    # TODO: account for negatively signed numbers
-    members.append(pair)
+for member in range(-2147483647, 2147483647):
+    members.append(member)
 
 multiplicative_group = Binary(
     mul, 
