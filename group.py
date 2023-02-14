@@ -94,9 +94,9 @@ class Binary(PseudoGroup):
 
         def save_with_type(res, first, second):
             if self.data_type == "I8":
-                self.table["{0:08b}".format(res)] = ["{0:64b}".format(first), "{0:64b}".format(second)]
+                self.table["{0:08b}".format(res)] = ["{0:08b}".format(first), "{0:08b}".format(second)]
             elif self.data_type == "I32":
-                self.table["{0:32b}".format(res)] = ["{0:64b}".format(first), "{0:64b}".format(second)]
+                self.table["{0:32b}".format(res)] = ["{0:32b}".format(first), "{0:32b}".format(second)]
             elif self.data_type == "I64":
                 self.table["{0:64b}".format(res)] = ["{0:64b}".format(first), "{0:64b}".format(second)]
 
