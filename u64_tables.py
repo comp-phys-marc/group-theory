@@ -27,7 +27,7 @@ additive_group = Binary(
     members,
     1, 
     data_type="u64", 
-    symbol="*"
+    symbol="+"
 )
 
 multiplicative_group.generate_table()

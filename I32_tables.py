@@ -36,7 +36,7 @@ additive_group = Binary(
     members,
     1, 
     data_type="I32", 
-    symbol="*"
+    symbol="+"
 )
 
 multiplicative_group.generate_table()
